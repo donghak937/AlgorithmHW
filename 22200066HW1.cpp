@@ -147,9 +147,12 @@ int getValidMenuIndex(){
     while (true) {
         getline(cin, input);
         bool valid = true;
-
-        if((int)input.length() == 0) break;
         int index = 0;
+
+        if ((int)input.length() == 0) {
+            cout << "Invalid index. Please enter an integer from 1 to 30: ";
+            continue;
+        }
 
         for (int i = 0; i < (int)input.length(); i++) {
             if (input[i] < '0' || input[i] > '9') {
@@ -174,8 +177,6 @@ int main(){
     while (true) {
         printMenu();
         cout << "Choose menu: ";
-        getline(cin, choice);
-
         getline(cin, choice);
 
         while (!choice.empty() && choice.front() == ' ') {
@@ -233,7 +234,7 @@ int main(){
             if (q.isEmpty()) cout << "Queue is empty." << '\n';
             else {
                 StudentRecord top = q.maximum();
-                cout << "Maximum element: " << top.studentName << ", " << top.score << '\n';
+                cout << "Element with the largest key: [" << top.studentName << ", " << top.score << ", " << top.className << "]" << '\n';
             }
         }
 
