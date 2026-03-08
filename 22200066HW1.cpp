@@ -116,7 +116,7 @@ int getValidScore() {
     string input;
 
     while (true) {
-        cout << "Enter the score of the element: ";
+        cout << "Enter the new score: ";
         getline(cin, input);
         bool valid = true;
 
@@ -259,7 +259,6 @@ int main(){
             StudentRecord currentScore = q.getRecord(index);
 
             while (true) {
-                cout << "Enter the new score: ";
                 int newScore = getValidScore();
 
                 if (newScore <= currentScore.score) {
