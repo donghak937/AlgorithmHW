@@ -95,8 +95,8 @@ class priQueue{
             cout << i << ". " << "[" << heap[i].studentName << ", " << heap[i].score << ", " << heap[i].className << "]" << '\n';
         }
     }
-    int getScore(int index){
-        return heap[index].score;
+    StudentRecord getRecord(int index){
+        return heap[index];
     }
     
 };
@@ -137,7 +137,7 @@ int getValidScore() {
             return score;
         }
 
-        cout << "Invalid score. Please enter an integer from 0 to 100: ";
+        cout << "Invalid score. Please enter a valid integer between 0 and 100: ";
     }
 }
 
@@ -254,18 +254,19 @@ int main(){
                 continue;
             }
 
-            int currentScore = q.getScore(index);
+            StudentRecord currentScore = q.getRecord(index);
 
             cout << "Enter the new score: ";
             while (true) {
                 int newScore = getValidScore();
 
-                if (newScore < currentScore) {
+                if (newScore <= currentScore.score) {
                     cout << "New score should be larger than current score. Please enter again." << '\n';
                 } 
                 else {
                     q.increase(index, newScore);
-                    cout << "Key has been increased successfully." << '\n';
+                    cout << "Key updated. ";
+                    cout << "[" << currentScore.studentName << ", " << newScore << ", " << currentScore.className << "] has been repositioned in the queue." << '\n';
                     break;
                 }
             }
@@ -273,7 +274,10 @@ int main(){
 
         else if (command == 'P' || command == 'p') {
             if (q.isEmpty()) cout << "Queue is empty." << '\n';
-            else q.printQueue();
+            else{
+                cout << "Current queue elements: " << '\n';
+                q.printQueue();
+            } 
         }
 
         else {
