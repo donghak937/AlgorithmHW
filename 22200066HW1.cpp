@@ -116,11 +116,12 @@ int getValidScore() {
     string input;
 
     while (true) {
+        cout << "Enter the score of the element: ";
         getline(cin, input);
         bool valid = true;
 
         if ((int)input.length() == 0) {
-            cout << "Invalid score. Please enter an integer from 0 to 100: ";
+            cout << "Invalid score. Please enter an integer from 0 to 100." << '\n';
             continue;
         }
         int score = 0;
@@ -145,6 +146,7 @@ int getValidMenuIndex(){
     string input;
 
     while (true) {
+        
         getline(cin, input);
         bool valid = true;
         int index = 0;
@@ -210,7 +212,7 @@ int main(){
             cout << "Enter the name of the student: ";
             getline(cin, newRecord.studentName);
 
-            cout << "Enter the score of the element: ";
+            
             newRecord.score = getValidScore();
 
             cout << "Enter the class name: ";
@@ -256,8 +258,8 @@ int main(){
 
             StudentRecord currentScore = q.getRecord(index);
 
-            cout << "Enter the new score: ";
             while (true) {
+                cout << "Enter the new score: ";
                 int newScore = getValidScore();
 
                 if (newScore <= currentScore.score) {
