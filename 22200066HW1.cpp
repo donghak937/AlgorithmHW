@@ -138,7 +138,7 @@ int getValidScore() {
             return score;
         }
 
-        cout << "Invalid score. Please enter a valid integer between 0 and 100: ";
+        cout << "Invalid score. Please enter a valid integer between 0 and 100. " << '\n';
     }
 }
 
