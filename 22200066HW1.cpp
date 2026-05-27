@@ -166,7 +166,7 @@ int getValidScore() {
     string input;
 
     while (true) {
-        cout << "Enter the new score: ";
+        cout << "Enter the score of the element: ";
         getline(cin, input);
         bool valid = true;
 
